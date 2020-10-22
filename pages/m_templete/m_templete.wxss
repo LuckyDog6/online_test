@@ -1,0 +1,34 @@
+.btn{
+  display: flex;
+  /* display: -webkit-flex; */
+  /* justify-content: space-between; */
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+}
+.btn button{
+  width: 150px; 
+}
+button{
+  margin: 10px
+}
+.radio {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+}
+.score{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 200px
+}
+.score image{
+  margin: 0 0;
+  width: 384rpx;
+  height: 216rpx
+}
+.score view{
+  width:150px;
+}

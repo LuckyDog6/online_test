@@ -1,0 +1,52 @@
+<template name="course">
+<view hidden="{{condition}}">
+  <radio-group bindchange="checkboxChange" class="radio-group">
+    <view>{{titles[index].id}}.{{titles[index].title}}</view>
+    <label value="{{titles[index]}}">
+      <view class="radio">
+        <radio value="{{titles[index].select_a}}" checked="{{titles[index].select_a==answer[index]}}" />
+        <view>{{titles[index].select_a}}</view>
+      </view>
+      <view class="radio">
+        <radio value="{{titles[index].select_b}}" checked="{{titles[index].select_b==answer[index]}}" />
+        <view>{{titles[index].select_b}}</view>
+      </view>
+      <view class="radio">
+        <radio value="{{titles[index].select_c}}" checked="{{titles[index].select_c==answer[index]}}" />
+        <view>{{titles[index].select_c}}</view>
+      </view>
+      <view class="radio">
+        <radio value="{{titles[index].select_d}}" checked="{{titles[index].select_d==answer[index]}}" />
+        <view>{{titles[index].select_d}}</view>
+      </view>
+    </label>
+  </radio-group>
+  <view>
+    <view wx:if="{{index==0}}">
+      <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
+    </view>
+    <view wx:elif="{{index==9}}" class="btn">
+      <button type="primary" bindtap="previous">上一题</button>
+      <button type="warn" bindtap="submit">提交</button>
+    </view>
+    <view wx:else class="btn">
+      <button type="primary" bindtap="previous">上一题</button>
+      <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
+    </view>
+  </view>
+</view>
+<view hidden="{{showScore}}">
+<view class="score">
+  <image src="/images/m-9.png"></image>
+  <text>本次测试{{score}}分</text>
+</view>
+  <view>
+  <navigator url="{{url}}">
+    <button type="primary">再测一次</button>
+  </navigator>
+  <navigator url="/pages/index/index" open-type="switchTab">
+    <button type="warn">回到首页</button>
+  </navigator>
+  </view>
+</view>
+</template>

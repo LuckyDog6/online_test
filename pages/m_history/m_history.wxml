@@ -1,0 +1,2 @@
+<import src="../m_templete/m_templete.wxml" />
+<template is="m_course" data="{{condition,titles,index,isnull,showScore,score,answer,url,checked_a,checked_b,checked_c,checked_d,xxx}}"></template>

@@ -1,0 +1,8 @@
+.score{
+  display: flex;
+  flex-direction: row;
+}
+.score image{
+  width: 480rpx;
+  height: 270rpx
+}

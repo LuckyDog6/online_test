@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/s_chinese/s_chinese",
+    "pages/s_math/s_math",
+    "pages/s_english/s_english",
+    "pages/s_history/s_history",
+    "pages/m_chinese/m_chinese",
+    "pages/m_geography/m_geography",
+    "pages/m_biology/m_biology",
+    "pages/m_history/m_history",
+    "pages/templete/templete",
+    "pages/m_templete/m_templete",
+    "pages/info/info",
+    "pages/logs/logs",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundColor":"#F6F6F6",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0099ff",
+    "navigationBarTitleText": "在线考试系统",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#0000FF",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-o.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "查看答案",
+        "iconPath": "icons/category.png",
+        "selectedIconPath": "icons/category-o.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my-o.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

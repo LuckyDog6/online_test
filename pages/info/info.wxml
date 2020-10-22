@@ -1,0 +1,91 @@
+<view class="page-section" hidden="{{condition}}">
+  <view class="weui-cells__title">请输入答案提取码</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" maxlength="6" password placeholder="6位答案提取码" value="{{password}}" bindinput="getValue" />
+    </view>
+  </view>
+  <button type="primary" class="btn" bindtap="answer">获取答案</button>
+</view>
+<view class="answer" hidden="{{!condition}}">
+  <view hidden="{{answer}}">
+    <view class="sil">
+      <view class="single">单项选择</view>
+      <view class="btn">
+        <button type="primary" bindtap="s_chinese">文学</button>
+        <button type="primary" bindtap="s_math">数学</button>
+        <button type="primary" bindtap="s_english">英语</button>
+        <button type="primary" bindtap="s_history">历史</button>
+      </view>
+      <image src="/images/learn.jpg" class="img"></image>
+    </view>
+    <view class="sil">
+      <view class="single">多项选择</view>
+      <view class="btn">
+        <button type="primary" bindtap="m_chinese">文学</button>
+        <button type="primary" bindtap="m_geography">地理</button>
+        <button type="primary" bindtap="m_biology">生物</button>
+        <button type="primary" bindtap="m_history">历史</button>
+      </view>
+
+    </view>
+    <image src="/images/learn-2.jpg" class="img"></image>
+  </view>
+  <view hidden="{{s_chi}}">
+    <view class="txt">单项文学</view>
+    <view wx:for="{{s_chinese}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{s_mat}}">
+    <view class="txt">单项数学</view>
+    <view wx:for="{{s_math}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{s_eng}}">
+    <view class="txt">单项英语</view>
+    <view wx:for="{{s_english}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{s_his}}">
+    <view class="txt">单项历史</view>
+    <view wx:for="{{s_history}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{m_chi}}">
+    <view class="txt">多项文学</view>
+    <view wx:for="{{m_chinese}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{m_geo}}">
+    <view class="txt">多项地理</view>
+    <view wx:for="{{m_geography}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{m_bio}}">
+    <view class="txt">多项生物</view>
+    <view wx:for="{{m_biology}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+  <view hidden="{{m_his}}">
+    <view class="txt">多项历史</view>
+    <view wx:for="{{m_history}}" wx:key="{{index}}">
+      第{{index+1}}题答案:{{item}}
+    </view>
+    <button type="primary" bindtap="ret">返回</button>
+  </view>
+
+</view>

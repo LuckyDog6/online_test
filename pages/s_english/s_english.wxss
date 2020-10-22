@@ -1,0 +1,2 @@
+@import "../info/info.wxss";
+@import "../templete/templete.wxss";

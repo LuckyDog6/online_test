@@ -1,0 +1,15 @@
+.score{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 200px
+}
+.score image{
+  margin: 0 0;
+  width: 384rpx;
+  height: 216rpx
+}
+.score view{
+  width:150px;
+}
