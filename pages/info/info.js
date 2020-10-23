@@ -1,4 +1,5 @@
 import { request } from "../../request/index.js";
+// 小程序不支持ES7语法 需要引入外部文件
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
@@ -33,6 +34,7 @@ Page({
   onLoad: function (options) {
     
   },
+  // 获取答案接口
   async getAnswer(){
     var data = await request({ url: "/answer" });
     this.setData({
@@ -70,6 +72,7 @@ Page({
       })
     }
   },
+// 获取当前数据时将其他数据隐藏
 s_chinese(e){
   console.log(e)
   this.setData({

@@ -1,3 +1,4 @@
+<!-- 测试代码块 -->
 <view class="score">
   <image src="/images/m-9.png"></image>
   <text>本次测试{{score}}分</text>

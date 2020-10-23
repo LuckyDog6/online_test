@@ -1,3 +1,4 @@
+<!-- 多选模板 -->
 <template name="m_course">
 <view hidden="{{condition}}">
   <checkbox-group bindchange="checkboxChange" class="radio-group">

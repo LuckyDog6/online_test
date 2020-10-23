@@ -1,4 +1,5 @@
 import { request } from "../../request/index.js";
+// 小程序不支持ES7语法async 需要引入外部文件
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
