@@ -1,2 +1,4 @@
+<!-- 引入答题wxml模板文件 -->
 <import src="../m_templete/m_templete.wxml" />
-<template is="m_course" data="{{condition,titles,index,isnull,showScore,score,answer,url,checked_a,checked_b,checked_c,checked_d,xxx}}"></template>
+<!-- 赋值 -->
+<template is="m_course" data="{{condition,titles,index,isnull,showScore,score,answer,url,checked_a,checked_b,checked_c,checked_d,xxx,error,yes}}"></template>

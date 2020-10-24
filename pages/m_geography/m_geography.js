@@ -1,4 +1,6 @@
-import { request } from "../../request/index.js";
+import {
+  request
+} from "../../request/index.js";
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
@@ -22,31 +24,38 @@ Page({
     checked_c: false,
     checked_d: false,
     xxx: "",
+    error: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getDataList()
   },
   async getDataList() {
-    var data = await request({ url: "/m_geography/getAll" });
+    var data = await request({
+      url: "/m_geography/getAll"
+    });
     this.data.titles = data
     this.setData({
       titles: data['data']
     })
-    console.log(this.data.titles)
+
   },
   checkboxChange(e) {
     this.data.a = e.detail.value
-    console.log(this.data.a.length)
-    if (e.detail.value !== "") {
+
+    if (e.detail.value.length !== 0) {
       this.setData({
         isnull: false
       })
+    } else {
+      this.setData({
+        isnull: true
+      })
     }
-    console.log(e)
+
   },
   next() {
     if (this.data.a != "") {
@@ -81,7 +90,7 @@ Page({
         xxx: this.data.xxx
       })
     }
-    console.log(this.data.xxx)
+
     this.setData({
       checked_a: this.data.xxx.includes(this.data.titles[this.data.index].select_a),
       checked_b: this.data.xxx.includes(this.data.titles[this.data.index].select_b),
@@ -98,7 +107,7 @@ Page({
       isselect: false
     })
     this.data.a = []
-    console.log(this.data.answer)
+
   },
   previous() {
 
@@ -119,14 +128,14 @@ Page({
         condition: true
       })
     }
-    console.log(this.data.answer[this.data.index])
+
     this.setData({
       checked_a: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_a),
       checked_b: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_b),
       checked_c: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_c),
       checked_d: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_d),
     })
-    console.log(this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_c))
+
   },
   submit() {
     if (this.data.a != null) {
@@ -134,19 +143,19 @@ Page({
         answer: this.data.answer.concat([this.data.a])
       })
     }
-    // console.log(this.data.answer)
+    // 
     for (var i = 0; i < this.data.titles.length; i++) {
 
-      // console.log(this.data.titles[i].answer)
+      // 
       var y = this.data.titles[i].answer
       this.setData({
         yes: this.data.yes.concat([this.data.titles[i].answer])
       })
     }
-    console.log(this.data.yes[1].split(",").sort())
-    console.log(this.data.answer[1].sort())
-    console.log(this.data.yes[1].split(",").sort() == this.data.answer[1].sort())
-    console.log(this.data.yes)
+
+
+
+
     for (var j = 0; j < this.data.answer.length; j++) {
       if (this.data.answer[j].sort().toString() == this.data.yes[j].split(",").sort().toString()) {
         this.setData({
@@ -154,7 +163,7 @@ Page({
         })
       }
     }
-    console.log(this.data.score)
+
     this.setData({
       condition: true
     })
@@ -162,51 +171,70 @@ Page({
       showScore: false
     })
   },
+  error() {
+    this.setData({
+      error: false,
+      showScore: true
+    })
+    this.setData({
+      condition: false
+    })
+  },
+  exit() {
+    this.setData({
+      error: true
+    })
+    this.setData({
+      showScore: false
+    })
+    this.setData({
+      condition: true
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

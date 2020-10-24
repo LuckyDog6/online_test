@@ -24,13 +24,15 @@ Page({
     multiIndex: [0, 0],
     url: ''
   },
+  // 拿到所选题的文字信息
   sessionChange(e) {
     this.setData({
       session: this.data.array[0][e.detail.value[0]] + '' + this.data.array[1][e.detail.value[1]],
       isnull: e.detail.value
     })
-    console.log(this.data.isnull)
+
   },
+  // 根据列不同替换数组
   colChange(e) {
     var array1 = this.data.array
     if (e.detail.column == 0 && e.detail.value == 1) {
@@ -42,55 +44,50 @@ Page({
       array: array1
     })
   },
+  // 点击跳转页面
   click() {
-    console.log(this.data.isnull)
+
     if (this.data.isnull.length === 0) {
       wx.showModal({
         title: '',
         content: '请选择课程',
       })
     } else {
-        if (this.data.isnull.toString() === [0, 0].toString()) {
-          wx.navigateTo({
-            url: '/pages/s_chinese/s_chinese'
-          });
-        } 
-        else if (this.data.isnull.toString() === [0, 1].toString()) {
-          wx.navigateTo({
-            url: '/pages/s_math/s_math'
-          });
-        } 
-        else if (this.data.isnull.toString() === [0, 2].toString()) {
-          wx.navigateTo({
-            url: '/pages/s_english/s_english'
-          });
-        } 
-        else if (this.data.isnull.toString() === [0, 3].toString()) {
-          wx.navigateTo({
-            url: '/pages/s_history/s_history'
-          });
-        } 
-        else if (this.data.isnull.toString() === [1, 0].toString()) {
-          wx.navigateTo({
-            url: '/pages/m_chinese/m_chinese'
-          });
-        } 
-        else if (this.data.isnull.toString() === [1, 1].toString()) {
-          wx.navigateTo({
-            url: '/pages/m_geography/m_geography'
-          });
-        } 
-        else if (this.data.isnull.toString() === [1, 2].toString()) {
-          wx.navigateTo({
-            url: '/pages/m_biology/m_biology'
-          });
-        } 
-        else if (this.data.isnull.toString() === [1, 3].toString()) {
-          wx.navigateTo({
-            url: '/pages/m_history/m_history'
-          });
-        }
+      // this.data.isnull 是选的题目的数组
+      if (this.data.isnull.toString() === [0, 0].toString()) {
+        wx.navigateTo({
+          url: '/pages/s_chinese/s_chinese'
+        });
+      } else if (this.data.isnull.toString() === [0, 1].toString()) {
+        wx.navigateTo({
+          url: '/pages/s_math/s_math'
+        });
+      } else if (this.data.isnull.toString() === [0, 2].toString()) {
+        wx.navigateTo({
+          url: '/pages/s_english/s_english'
+        });
+      } else if (this.data.isnull.toString() === [0, 3].toString()) {
+        wx.navigateTo({
+          url: '/pages/s_history/s_history'
+        });
+      } else if (this.data.isnull.toString() === [1, 0].toString()) {
+        wx.navigateTo({
+          url: '/pages/m_chinese/m_chinese'
+        });
+      } else if (this.data.isnull.toString() === [1, 1].toString()) {
+        wx.navigateTo({
+          url: '/pages/m_geography/m_geography'
+        });
+      } else if (this.data.isnull.toString() === [1, 2].toString()) {
+        wx.navigateTo({
+          url: '/pages/m_biology/m_biology'
+        });
+      } else if (this.data.isnull.toString() === [1, 3].toString()) {
+        wx.navigateTo({
+          url: '/pages/m_history/m_history'
+        });
       }
+    }
   },
   //options(Object)
   onLoad: function(options) {

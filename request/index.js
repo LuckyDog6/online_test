@@ -1,12 +1,13 @@
 // 同时发送异步代码的次数
-let ajaxTimes=0;
+let ajaxTimes = 0;
 // 对wx.request做promise封装
-export const request=(params)=>{
+export const request = (params) => {
   // 判断 url中是否带有 /my/ 请求的是私有的路径 带上header token
-  let header={...params.header};
-  if(params.url.includes("/my/")){
+  let header = { ...params.header
+  };
+  if (params.url.includes("/my/")) {
     // 拼接header 带上token
-    header["Authorization"]=wx.getStorageSync("token");
+    header["Authorization"] = wx.getStorageSync("token");
   }
   ajaxTimes++;
   // 显示加载中 效果
@@ -15,25 +16,25 @@ export const request=(params)=>{
     mask: true
   });
   // 定义公共的url
-  const baseUrl ="http://192.168.1.107:8888";
-  return new Promise((resolve,reject)=>{
+  const baseUrl = "http://192.168.1.107:8888";
+  return new Promise((resolve, reject) => {
     wx.request({
-     ...params,
-     header:header,
-     url:baseUrl+params.url,
-     success:(result)=>{
-       resolve(result.data);
-     },
-     fail:(err)=>{
-       reject(err);
-     },
-     complete:()=>{
-      ajaxTimes--;
-      if(ajaxTimes===0){
-        //  关闭正在等待的图标
-        wx.hideLoading();
+      ...params,
+      header: header,
+      url: baseUrl + params.url,
+      success: (result) => {
+        resolve(result.data);
+      },
+      fail: (err) => {
+        reject(err);
+      },
+      complete: () => {
+        ajaxTimes--;
+        if (ajaxTimes === 0) {
+          //  关闭正在等待的图标
+          wx.hideLoading();
+        }
       }
-     }
     });
   })
 }

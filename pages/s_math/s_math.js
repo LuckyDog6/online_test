@@ -1,4 +1,6 @@
-import { request } from "../../request/index.js";
+import {
+  request
+} from "../../request/index.js";
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
@@ -16,22 +18,25 @@ Page({
     yes: [],
     score: 0,
     showScore: true,
-    url: "/pages/s_math/s_math"
+    url: "/pages/s_math/s_math",
+    error: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getDataList()
   },
   async getDataList() {
-    var data = await request({ url: "/s_math/getAll" });
+    var data = await request({
+      url: "/s_math/getAll"
+    });
     this.data.titles = data
     this.setData({
       titles: data['data']
     })
-    console.log(this.data.titles)
+
   },
   checkboxChange(e) {
     this.data.a = e.detail.value
@@ -40,7 +45,7 @@ Page({
         isnull: false
       })
     }
-    console.log(e)
+
   },
   next() {
     if (this.data.a != "") {
@@ -63,7 +68,7 @@ Page({
       })
 
     }
-    console.log(this.data.a + "!!!!!")
+
     if (this.data.answer[this.data.index] != null && this.data.a != "") {
       this.data.answer.splice(this.data.index - 1, 1)
       this.setData({
@@ -74,14 +79,14 @@ Page({
       isselect: false
     })
     this.data.a = ''
-    console.log(this.data.answer)
+
   },
   previous() {
     this.setData({
       a: ''
     })
-    console.log()
-    console.log(this.data.index)
+
+
     if (this.data.answer[this.data.index] != "") {
       this.setData({
         isnull: false
@@ -96,7 +101,7 @@ Page({
         condition: true
       })
     }
-    console.log(this.data.answer)
+
   },
   submit() {
     if (this.data.a != null) {
@@ -104,15 +109,15 @@ Page({
         answer: this.data.answer.concat(this.data.a)
       })
     }
-    console.log(this.data.answer)
+
     for (var i = 0; i < this.data.titles.length; i++) {
-      console.log(this.data.titles[i].answer)
+
       var y = this.data.titles[i].answer
       this.setData({
         yes: this.data.yes.concat(this.data.titles[i].answer)
       })
     }
-    console.log(this.data.yes)
+
     for (var j = 0; j < this.data.answer.length; j++) {
       if (this.data.answer[j] == this.data.yes[j]) {
         this.setData({
@@ -120,7 +125,7 @@ Page({
         })
       }
     }
-    console.log(this.data.score)
+
     this.setData({
       condition: true
     })
@@ -128,51 +133,70 @@ Page({
       showScore: false
     })
   },
+  error() {
+    this.setData({
+      error: false,
+      showScore: true
+    })
+    this.setData({
+      condition: false
+    })
+  },
+  exit() {
+    this.setData({
+      error: true
+    })
+    this.setData({
+      showScore: false
+    })
+    this.setData({
+      condition: true
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

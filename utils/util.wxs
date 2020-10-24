@@ -1,0 +1,14 @@
+var sort = function (val) {
+  if (val == "" || val == undefined) {
+    return ;
+  }
+  return val.sort().toString();
+}
+var split = function (val) {
+  if (val == "" || val == undefined) {
+    return ;
+  }
+  return val.split(',').sort().toString();
+}
+module.exports.sort= sort;
+module.exports.split= split;

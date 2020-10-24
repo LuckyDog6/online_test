@@ -1,2 +1,2 @@
 <import src="../templete/templete.wxml" />
-<template is="course" data="{{condition,titles,index,isnull,showScore,score,answer,url}}"></template>
+<template is="course" data="{{condition,titles,index,isnull,showScore,score,answer,url,error,yes}}"></template>

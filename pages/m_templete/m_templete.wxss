@@ -33,3 +33,9 @@ button{
 .score view{
   width:150px;
 }
+.true{
+  color: green;
+}
+.false{
+  color: red;
+}

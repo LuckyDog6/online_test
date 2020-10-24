@@ -36,17 +36,17 @@
 //     this.setData({
 //       titles: data['data']
 //     })
-//     console.log(this.data.titles)
+//     
 //   },
 //   checkboxChange(e) {
 //     this.data.a = e.detail.value
-//     console.log(this.data.a.length)
+//     
 //     if (e.detail.value !== "") {
 //       this.setData({
 //         isnull: false
 //       })
 //     }
-//     console.log(e)
+//     
 //   },
 //   next() {
 //     if (this.data.a != "") {
@@ -81,7 +81,7 @@
 //         xxx: this.data.xxx
 //       })
 //     }
-//     console.log(this.data.xxx)
+//     
 //     this.setData({
 //       checked_a: this.data.xxx.includes(this.data.titles[this.data.index].select_a),
 //       checked_b: this.data.xxx.includes(this.data.titles[this.data.index].select_b),
@@ -98,15 +98,15 @@
 //       isselect: false
 //     })
 //     this.data.a = []
-//     console.log(this.data.answer)
+//     
 //   },
 //   previous() {
     
 //     this.setData({
 //       a: []
 //     })
-//     console.log()
-//     console.log(this.data.index)
+//     
+//     
 //     if (this.data.answer[this.data.index] != "") {
 //       this.setData({
 //         isnull: false
@@ -121,14 +121,14 @@
 //         condition: true
 //       })
 //     }
-//     console.log(this.data.answer[this.data.index])
+//     
 //     this.setData({
 //       checked_a: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_a),
 //       checked_b: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_b),
 //       checked_c: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_c),
 //       checked_d: this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_d),
 //     })
-//     console.log(this.data.answer[this.data.index].includes(this.data.titles[this.data.index].select_c))
+//     
 //   },
 //   submit() {
 //     if (this.data.a != null) {
@@ -136,15 +136,15 @@
 //         answer: this.data.answer.concat([this.data.a])
 //       })
 //     }
-//     console.log(this.data.answer)
+//     
 //     for (var i = 0; i < this.data.titles.length; i++) {
-//       console.log(this.data.titles[i].answer)
+//       
 //       var y = this.data.titles[i].answer
 //       this.setData({
 //         yes: this.data.yes.concat(this.data.titles[i].answer)
 //       })
 //     }
-//     console.log(this.data.yes)
+//     
 //     for (var j = 0; j < this.data.answer.length; j++) {
 //       if (this.data.answer[j] == this.data.yes[j]) {
 //         this.setData({
@@ -152,7 +152,7 @@
 //         })
 //       }
 //     }
-//     console.log(this.data.score)
+//     
 //     this.setData({
 //       condition: true
 //     })

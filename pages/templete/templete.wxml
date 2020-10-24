@@ -1,40 +1,44 @@
-<!-- 带选题模板文件 -->
+<!-- 单选题模板文件 -->
 <template name="course">
 <view hidden="{{condition}}">
   <radio-group bindchange="checkboxChange" class="radio-group">
     <view>{{titles[index].id}}.{{titles[index].title}}</view>
     <label value="{{titles[index]}}">
       <view class="radio">
-        <radio value="{{titles[index].select_a}}" checked="{{titles[index].select_a==answer[index]}}" />
+        <radio value="{{titles[index].select_a}}" checked="{{titles[index].select_a==answer[index]}}" disabled="{{!error}}"/>
         <view>{{titles[index].select_a}}</view>
       </view>
       <view class="radio">
-        <radio value="{{titles[index].select_b}}" checked="{{titles[index].select_b==answer[index]}}" />
+        <radio value="{{titles[index].select_b}}" checked="{{titles[index].select_b==answer[index]}}" disabled="{{!error}}"/>
         <view>{{titles[index].select_b}}</view>
       </view>
       <view class="radio">
-        <radio value="{{titles[index].select_c}}" checked="{{titles[index].select_c==answer[index]}}" />
+        <radio value="{{titles[index].select_c}}" checked="{{titles[index].select_c==answer[index]}}" disabled="{{!error}}"/>
         <view>{{titles[index].select_c}}</view>
       </view>
       <view class="radio">
-        <radio value="{{titles[index].select_d}}" checked="{{titles[index].select_d==answer[index]}}" />
+        <radio value="{{titles[index].select_d}}" checked="{{titles[index].select_d==answer[index]}}" disabled="{{!error}}"/>
         <view>{{titles[index].select_d}}</view>
       </view>
     </label>
   </radio-group>
+  <view hidden="{{error}}" class="{{yes[index]==answer[index]?'true':'false'}}">
+  正确答案：{{yes[index]}}
+  </view>
   <view>
     <view wx:if="{{index==0}}">
       <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
     </view>
     <view wx:elif="{{index==9}}" class="btn">
       <button type="primary" bindtap="previous">上一题</button>
-      <button type="warn" bindtap="submit">提交</button>
+      <button type="warn" bindtap="submit" hidden="{{!error}}"  disabled="{{isnull}}">提交</button>
     </view>
     <view wx:else class="btn">
       <button type="primary" bindtap="previous">上一题</button>
       <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
     </view>
   </view>
+  <button hidden="{{error}}" bindtap="exit">退出</button>
 </view>
 <view hidden="{{showScore}}">
 <view class="score">
@@ -42,12 +46,15 @@
   <text>本次测试{{score}}分</text>
 </view>
   <view>
+  <button bindtap="error">查看错题</button>
   <navigator url="{{url}}">
     <button type="primary">再测一次</button>
   </navigator>
   <navigator url="/pages/index/index" open-type="switchTab">
     <button type="warn">回到首页</button>
   </navigator>
+  
   </view>
 </view>
+
 </template>
