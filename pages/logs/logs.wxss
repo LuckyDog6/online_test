@@ -1,8 +1,31 @@
-.score{
-  display: flex;
-  flex-direction: row;
+.container{
+  background-color:rgb(175, 209, 209);
+  height: 100vh;
 }
-.score image{
-  width: 480rpx;
-  height: 270rpx
+.index_swiper swiper {
+  width: 750rpx;
+  height: 250rpx;
+}
+.index_swiper swiper image {
+  width: 100%;
+}
+picker{
+  display: flex;
+  flex-direction: column;
+}
+.bar1{
+  width: 50%;
+  background-color: rgb(155, 127, 255);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 150rpx 200rpx;
+}
+.bar2{
+  width: 50%;
+  background-color: rgb(194, 168, 19);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 200rpx;
 }

@@ -43,7 +43,7 @@
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "我的",
+        "text": "picker进入题库",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my-o.png"
       }
