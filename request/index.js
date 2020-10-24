@@ -16,7 +16,7 @@ export const request = (params) => {
     mask: true
   });
   // 定义公共的url
-  const baseUrl = "http://192.168.1.107:8888";
+  const baseUrl = "http://localhost:8888";
   return new Promise((resolve, reject) => {
     wx.request({
       ...params,

@@ -1,8 +1,9 @@
 <!-- 单选题模板文件 -->
 <template name="course">
+<view class="container">
 <view hidden="{{condition}}">
   <radio-group bindchange="checkboxChange" class="radio-group">
-    <view>{{titles[index].id}}.{{titles[index].title}}</view>
+   <text class="title">{{titles[index].id}}.{{titles[index].title}}</text>
     <label value="{{titles[index]}}">
       <view class="radio">
         <radio value="{{titles[index].select_a}}" checked="{{titles[index].select_a==answer[index]}}" disabled="{{!error}}"/>
@@ -27,18 +28,18 @@
   </view>
   <view>
     <view wx:if="{{index==0}}">
-      <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
+      <button bindtap="next" disabled="{{isnull}}" class="button1">下一题</button>
     </view>
     <view wx:elif="{{index==9}}" class="btn">
-      <button type="primary" bindtap="previous">上一题</button>
-      <button type="warn" bindtap="submit" hidden="{{!error}}"  disabled="{{isnull}}">提交</button>
+      <button bindtap="previous" class="button1">上一题</button>
+      <button class="button3" bindtap="submit" hidden="{{!error}}"  disabled="{{isnull}}">提交</button>
     </view>
     <view wx:else class="btn">
-      <button type="primary" bindtap="previous">上一题</button>
-      <button type="primary" bindtap="next" disabled="{{isnull}}">下一题</button>
+      <button bindtap="previous"  class="button1">上一题</button>
+      <button bindtap="next" disabled="{{isnull}}"  class="button1">下一题</button>
     </view>
   </view>
-  <button hidden="{{error}}" bindtap="exit">退出</button>
+  <button hidden="{{error}}" bindtap="exit" type="warn">退出</button>
 </view>
 <view hidden="{{showScore}}">
 <view class="score">
@@ -46,7 +47,7 @@
   <text>本次测试{{score}}分</text>
 </view>
   <view>
-  <button bindtap="error">查看错题</button>
+  <button bindtap="error" class="button2">查看错题</button>
   <navigator url="{{url}}">
     <button type="primary">再测一次</button>
   </navigator>
@@ -56,5 +57,5 @@
   
   </view>
 </view>
-
+</view>
 </template>

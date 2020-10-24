@@ -30,6 +30,10 @@ button{
   width: 384rpx;
   height: 216rpx
 }
+.score text{
+  font-size: 20px;
+  color: rgb(22, 236, 94)
+}
 .score view{
   width:150px;
 }

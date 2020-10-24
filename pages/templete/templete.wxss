@@ -1,4 +1,10 @@
 /* 模板wxss */
+.container{
+}
+.title{
+  font-size: 16px;
+  font-style: unset
+}
 .btn{
   display: flex;
   /* display: -webkit-flex; */
@@ -7,10 +13,20 @@
   /* flex-wrap: wrap; */
 }
 .btn button{
+  margin-top:50rpx; 
   width: 150px; 
 }
 button{
-  margin: 10px
+  margin: 50rpx 10px
+}
+.button1{
+  background-color: rgb(47, 240, 127); 
+}
+.button2{
+  background-color: rgb(155, 127, 255)
+}
+.button3{
+  background-color: rgb(194, 168, 19);
 }
 .radio {
   display: flex;
@@ -31,6 +47,10 @@ button{
 }
 .score view{
   width:150px;
+}
+.score text{
+  font-size: 20px;
+  color: rgb(22, 236, 94)
 }
 .true{
   color: green;
